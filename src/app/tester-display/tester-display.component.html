@@ -1,0 +1,58 @@
+<form [formGroup]="testerForm">
+
+<div class="container">
+  <div class="countryLabel">
+  Countries
+  </div>
+  <div class="countrySelect">
+     <select multiple class="custom-select" formControlName="countryControl">
+        <option *ngFor="let country of countries" [ngValue]="country">{{country}}</option>
+      </select>
+  </div>
+  <div class="countrySelectAll">
+    <button (click)="onCountrySelectAll()">Select All</button>
+    <br><br>
+    <button (click)="onCountryReset()">Reset</button>
+  </div>
+
+  <div class="deviceLabel">
+      Devices
+  </div>
+
+  <div class="deviceSelect">
+    <select size="6" multiple class="custom-select" formControlName="deviceControl">
+      <option *ngFor="let device of devices" [ngValue]="device.deviceId">{{device.description}}</option>
+    </select>
+  </div>
+
+  <div class="deviceSelectAll">
+    <button (click)="onDeviceSelectAll()">Select All</button>
+    <br><br>
+    <button (click)="onDeviceReset()">Reset</button>
+  </div>
+
+  <div class="requiredMessage" *ngIf="!testerForm.valid">
+    Please select at least one country and at least one device to see results
+  </div>
+
+  <div class ="resultsDisplay" *ngIf="testerForm.valid">
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of this.testResults">
+          <td>{{result.name}}</td>
+          <td>{{result.count}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</form>
+
+

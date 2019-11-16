@@ -1,0 +1,55 @@
+.container {
+  font-family: Arial, serif;
+  display: grid;
+
+  grid-template-columns:75px 125px auto;
+  grid-template-rows: minmax(100px,10%) minmax(120px,10%) 50px auto;
+  grid-gap: 5px;
+
+  grid-template-areas:
+    "country-label country-select country-select-all"
+    "device-label device-select device-select-all"
+    "required-message required-message required-message"
+    "results-display results-display results-display";
+
+  height: 90vh;
+}
+
+.countryLabel {
+   grid-area: country-label;
+ }
+
+.countrySelect {
+  grid-area: country-select;
+}
+
+.countrySelectAll {
+  grid-area: country-select-all;
+}
+
+.deviceLabel {
+  grid-area: device-label;
+}
+
+.deviceSelect {
+  grid-area: device-select;
+}
+
+.deviceSelectAll {
+  grid-area: device-select-all;
+}
+
+.requiredMessage {
+  grid-area: required-message;
+  color: red;
+  font-weight: bold;
+}
+
+.resultsDisplay {
+  grid-area: results-display;
+}
+
+.custom-select {
+  min-width: 100px;
+}
+
